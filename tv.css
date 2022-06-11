@@ -1,0 +1,28 @@
+#status{
+    margin-top: 40px;
+}
+
+canvas{
+    border: 5px solid black;
+}
+
+#back{
+    background-color: black;
+    float: right;
+    font-size: 20px;
+    color: white;
+    padding: 5px;
+    float: top;
+}
+
+
+#body{
+    background-position: center;
+    background-size: cover;
+}
+
+.btn-info{
+    width: 100%;
+    padding: 10px;
+    margin-top: 0px;
+}
