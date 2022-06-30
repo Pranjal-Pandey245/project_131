@@ -1,10 +1,12 @@
 status="";
 img="";
-objects=[];
+objects= "";
+
 objectDetector="";
 
 function preload(){
-   img= loadImage('TV.jpg');
+   img= loadImage('bottle.jpg');
+   
 }
 
 function setup(){
@@ -26,10 +28,10 @@ function draw(){
            fill("red");
            stroke('red');
 
-        text(objects[0].label + " " + percent + "%", objects[i].x, objects[i].y);
+        text(objects[i].label + " " + percent + "%", objects[i].x, objects[i].y);
         noFill();
         rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
-        document.getElementById("detect").innerHTML="There was 1 object and cocossd deteted 1 objets ";
+        document.getElementById("detect").innerHTML="There was 5 object and cocossd deteted 2 objets ";
         }}
 }
 

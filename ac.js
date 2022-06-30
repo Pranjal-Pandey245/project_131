@@ -1,5 +1,8 @@
 status="";
 img="";
+objects=[];
+
+objectDetector="";
 
 function preload(){
    img= loadImage('AC.jpg');
@@ -13,13 +16,30 @@ function setup(){
 }
 
 function draw(){
-     image(img, 0, 0, 400, 400);
+    image(img, 0, 0, 400, 400);
+
+     if(status!=""){
+  
+        for(i=0; i<objects.length; i++){
+           percent= Math.floor(objects[i].confidence*100);
+           document.getElementById("status").innerHTML="Status: Objects detected";
+
+           fill("red");
+           stroke('red');
+
+        text(objects[i].label + " " + percent + "%", objects[i].x, objects[i].y);
+        noFill();
+        rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+        document.getElementById("detect").innerHTML="There was 2 object and cocossd deteted 1 objet ";
+
+        }
+     }
 }
 
 function modelLoaded(){
     console.log("model loaded");
     status= true;
-    objectDetector.on(img, gotResults);
+    objectDetector.detect(img, gotResults);
 }
 
 function gotResults(error, results){
@@ -28,5 +48,6 @@ function gotResults(error, results){
     }
     else{
         console.log(results);
+        objects= results;
     }
 }
